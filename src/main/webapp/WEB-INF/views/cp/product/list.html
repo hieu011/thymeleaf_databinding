@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>List of products</title>
+
+    <th:block th:replace="cp/layout/head :: style-meta" />
+
+    <th:block th:replace="cp/layout/head :: style-app" />
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Topbar Start -->
+    <th:block th:insert="cp/layout/navbar-custom" />
+    <!-- end Topbar -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <th:block th:replace="cp/layout/left-side-menu" />
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
+                                    <li class="breadcrumb-item active">List of products</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">List of products</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <th:block th:if="${success == true}">
+                            <div class="card-box">
+                                <h4 class="header-title" th:text="${message}"></h4>
+                            </div>
+                        </th:block>
+
+                        <div class="card-box">
+                            <h2 class="header-title text-center text-primary">List Products</h2>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Mô tả</th>
+                                            <th>Giá tiền</th>
+                                            <th>Danh mục</th>
+                                            <th colspan="2">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <th:block th:each="item : ${products}">
+                                            <tr>
+                                                <td th:text="${item.id}"></td>
+                                                <td th:text="${item.name}"></td>
+                                                <td th:text="${item.description}"></td>
+                                                <td th:text="${item.price}"></td>
+                                                <td th:text="${item.category.title}"></td>
+                                                <td>
+                                                    <a th:href="@{/products/update/__${item.id}__}">
+                                                        <button class="btn btn-outline-secondary">
+                                                            Chỉnh sửa
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a th:href="@{/products/delete/__${item.id}__}">
+                                                        <button class="btn btn-outline-danger">
+                                                            Xóa
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </th:block>
+                                    </tbody>
+                                </table>
+                            </div> <!-- end table-responsive-->
+
+                        </div> <!-- end card-box -->
+                    </div>
+                </div>
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <th:block th:replace="cp/layout/footer" />
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Right Sidebar -->
+<th:block th:replace="cp/layout/right-bar" />
+<!-- /Right-bar -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<th:block th:replace="cp/layout/script :: script-vendor"/>
+
+<th:block th:replace="cp/layout/script :: script-app"/>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Create customer</title>
+
+    <th:block th:replace="cp/layout/head :: style-meta" />
+
+    <th:block th:replace="cp/layout/head :: style-app" />
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Topbar Start -->
+    <th:block th:replace="cp/layout/navbar-custom" />
+    <!-- end Topbar -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <th:block th:replace="cp/layout/left-side-menu" />
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
+                                    <li class="breadcrumb-item active">Create customer</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Create customer</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="card-box">
+                            <h4 class="header-title"></h4>
+                            <p class="sub-header">
+                                Parsley is a javascript form validation library. It helps you provide your users with feedback on their form submission before sending it to your server.
+                            </p>
+
+                            <form action="#" class="parsley-form">
+                                <div class="form-group">
+                                    <label for="userName">User Name<span class="text-danger">*</span></label>
+                                    <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name" class="form-control" id="userName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="emailAddress">Email address<span class="text-danger">*</span></label>
+                                    <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" class="form-control" id="emailAddress">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pass1">Password<span class="text-danger">*</span></label>
+                                    <input id="pass1" type="password" placeholder="Password" required="" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="passWord2">Confirm Password <span class="text-danger">*</span></label>
+                                    <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control" id="passWord2">
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox checkbox-purple">
+                                        <input id="checkbox6a" type="checkbox">
+                                        <label for="checkbox6a">
+                                            Remember me
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group text-right mb-0">
+                                    <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
+                                        Submit
+                                    </button>
+                                    <button type="reset" class="btn btn-secondary waves-effect waves-light">
+                                        Cancel
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div> <!-- end card-box -->
+                    </div>
+                    <!-- end col -->
+                </div>
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <th:block th:replace="cp/layout/footer" />
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Right Sidebar -->
+<th:block th:replace="cp/layout/right-bar" />
+<!-- /Right-bar -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<th:block th:replace="cp/layout/script :: script-vendor"/>
+
+<th:block th:replace="cp/layout/script :: script-app"/>
+
+</body>
+</html>

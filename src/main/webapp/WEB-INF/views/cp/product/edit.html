@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Update product</title>
+
+    <th:block th:replace="cp/layout/head :: style-meta"/>
+
+    <th:block th:replace="cp/layout/head :: style-app"/>
+
+    <style>
+        .header-title-success {
+            color: green;
+        }
+        .header-title-error {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Topbar Start -->
+    <th:block th:replace="cp/layout/navbar-custom"/>
+    <!-- end Topbar -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <th:block th:replace="cp/layout/left-side-menu"/>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Minton</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
+                                    <li class="breadcrumb-item active">Update product</li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Update product</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div th:if="${message}">
+                            <h4 th:text="${message}" style="color: #51b451"></h4>
+                        </div>
+                        <div th:if="${error}">
+                            <h4 th:text="${error}" style="color: #c25d5d"></h4>
+                        </div>
+                            <div class="card-box">
+                                <form class="parsley-form" method="post" th:object="${productUpdate}"
+                                      th:action="@{/products/update/__${productUpdate.id}__}"
+                                      th:if="${productUpdate}">
+                                    <div class="row">
+                                     <input type="hidden" th:field="*{id}"/>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label>Tên sản phẩm<span class="text-danger">*</span></label>
+                                                <input type="text" name="" placeholder="Tên sản phẩm..."
+                                                       class="form-control" th:field="*{name}"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label >Mô tả<span class="text-danger">*</span></label>
+                                                <input type="text" name="" placeholder="Giá..." class="form-control"
+                                                        th:field="*{description}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label >Giá tiền<span class="text-danger">*</span></label>
+                                                <input type="text" placeholder="Đơn vị..." class="form-control"
+                                                        th:field="*{price}"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label >Danh mục<span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" placeholder="Đơn vị..." class="form-control"
+                                                        th:field="*{category}"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group text-right mb-0">
+                                            <button class="btn btn-primary waves-effect waves-light mr-1" type="submit">
+                                                Cập nhật
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- end card-box -->
+                    </div>
+                    <!-- end col -->
+                </div>
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <th:block th:replace="cp/layout/footer"/>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Right Sidebar -->
+<th:block th:replace="cp/layout/right-bar"/>
+<!-- /Right-bar -->
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<th:block th:replace="cp/layout/script :: script-vendor"/>
+
+<th:block th:replace="cp/layout/script :: script-app"/>
+
+</body>
+</html>
